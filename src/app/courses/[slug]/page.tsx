@@ -3,15 +3,11 @@ import { notFound } from 'next/navigation';
 import { programs } from '../../data/programs';
 import CourseDetailsClient from './CourseDetailsClient';
 
-// Support Next.js 15 PageProps where params may be delivered as a Promise
-type ResolvableParams = { slug: string } | Promise<{ slug: string }>;
+// Align with Next.js 15 constraint where PageProps.params is a Promise
+type ParamsPromise = Promise<{ slug: string }>; 
 
-async function resolveParams(params: ResolvableParams){
-  return await Promise.resolve(params);
-}
-
-export async function generateMetadata({ params }: { params: ResolvableParams }): Promise<Metadata> {
-  const { slug } = await resolveParams(params);
+export async function generateMetadata({ params }: { params: ParamsPromise }): Promise<Metadata> {
+  const { slug } = await params;
   const program = programs.find(p => p.slug === slug);
   if(!program) return { title: 'Course Not Found | Institute' };
   return {
@@ -20,8 +16,8 @@ export async function generateMetadata({ params }: { params: ResolvableParams })
   };
 }
 
-export default async function CoursePage({ params }: { params: ResolvableParams }){
-  const { slug } = await resolveParams(params);
+export default async function CoursePage({ params }: { params: ParamsPromise }) {
+  const { slug } = await params;
   const program = programs.find(p => p.slug === slug);
   if(!program) return notFound();
   const imagePool = [
