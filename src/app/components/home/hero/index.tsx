@@ -81,10 +81,11 @@ function HeroSection() {
               className='flex flex-col items-center justify-center gap-4'>
               <div className='flex flex-col items-center justify-center gap-8 w-full sm:flex-row'>
                 {/* ----------- Explore Programs Link -------------- */}
+                <Link href='/courses' className='max-w-64 w-full'>
                 <motion.div 
                   whileHover={hoverVariants}
                   whileTap={{ scale: 0.95 }}
-                  className='group bg-purple_blue text-white font-medium flex flex-row justify-between items-center py-2 px-5 rounded-full max-w-64 w-full md:py-3 border border-purple_blue transition-all duration-200 ease-in-out hover:bg-transparent hover:text-purple_blue transform transition-transform duration-300 ease-in-out'>
+                  className='group bg-purple_blue text-white font-medium flex flex-row justify-between items-center py-2 px-5 rounded-full w-full md:py-3 border border-purple_blue transition-all duration-200 ease-in-out hover:bg-transparent hover:text-purple_blue transform transition-transform duration-300 ease-in-out'>
                   <span className='flex text-start transform transition-transform duration-200 ease-in-out group-hover:translate-x-28'>
                     Explore Programs
                   </span>
@@ -125,6 +126,7 @@ function HeroSection() {
                     />
                   </motion.svg>
                 </motion.div>
+                </Link>
 
                 {/* --------------- Faculty & Research division -------------- */}
                 <div className='flex items-center gap-7'>

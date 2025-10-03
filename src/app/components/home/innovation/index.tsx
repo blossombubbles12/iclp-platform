@@ -203,7 +203,7 @@ function Innovation() {
                   </svg>
                 </Link>
                 <Link
-                  href='/programs'
+                  href='/courses'
                   className='group border border-white dark:border-white/50 text-white font-medium bg-dark_black gap-2 rounded-full flex items-center justify-between lg:gap-4 py-2 pl-5 pr-2 hover:opacity-95 hover:bg-transparent hover:text-white transition-all duration-200 ease-in-out'>
                   <span className='group-hover:translate-x-9 transform transition-transform duration-200 ease-in-out'>
                     View Programs
