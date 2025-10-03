@@ -97,18 +97,27 @@ export default function CourseDetailsClient({ program }: CourseDetailsClientProp
   const [expandedModules, setExpandedModules] = useState<number[]>([0]);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState<number>(() => 1000 * 60 * 60 * 26); // 26h ms
+  const [mounted, setMounted] = useState(false);
 
   const finalPrice = useMemo(()=> (basePrice * (1 - discountPct/100)), []);
 
   useEffect(()=>{
-    const t = setInterval(()=> setCarouselIndex(i => (i + 1) % testimonials.length), 5000);
-    return ()=> clearInterval(t);
+    setMounted(true);
   },[]);
 
+  // Start carousel rotation only after mount (prevents hydration mismatch)
   useEffect(()=>{
-    const t = setInterval(()=> setTimeLeft(ms => ms - 1000), 1000);
+    if(!mounted) return;
+    const t = setInterval(()=> setCarouselIndex(i => (i + 1) % testimonials.length), 5000);
     return ()=> clearInterval(t);
-  },[]);
+  },[mounted]);
+
+  // Countdown ticking only after mount (server & first client paint match)
+  useEffect(()=>{
+    if(!mounted) return;
+    const t = setInterval(()=> setTimeLeft(ms => Math.max(0, ms - 1000)), 1000);
+    return ()=> clearInterval(t);
+  },[mounted]);
 
   const hours = Math.max(0, Math.floor(timeLeft / (1000*60*60)));
   const minutes = Math.max(0, Math.floor((timeLeft % (1000*60*60))/(1000*60)));
@@ -119,7 +128,7 @@ export default function CourseDetailsClient({ program }: CourseDetailsClientProp
   }
 
   return (
-    <div className="bg-white dark:bg-dark_black text-dark_black dark:text-white">
+  <div className="bg-white dark:bg-dark_black text-dark_black dark:text-white" suppressHydrationWarning data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false">
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -332,10 +341,20 @@ export default function CourseDetailsClient({ program }: CourseDetailsClientProp
             <div className="flex flex-col md:flex-row md:items-end gap-2 md:gap-6 flex-1">
             <div className="flex flex-col">
               <span className="text-xs tracking-wide font-medium text-dark_black/60 dark:text-white/50 uppercase">Limited Offer Ends In</span>
-              <div className="font-mono text-sm text-teal-600 dark:text-teal-300 flex gap-2">
-                <span>{hours.toString().padStart(2,'0')}h</span>
-                <span>{minutes.toString().padStart(2,'0')}m</span>
-                <span>{seconds.toString().padStart(2,'0')}s</span>
+              <div className="font-mono text-sm text-teal-600 dark:text-teal-300 flex gap-2" suppressHydrationWarning>
+                {mounted ? (
+                  <>
+                    <span>{hours.toString().padStart(2,'0')}h</span>
+                    <span>{minutes.toString().padStart(2,'0')}m</span>
+                    <span>{seconds.toString().padStart(2,'0')}s</span>
+                  </>
+                ) : (
+                  <>
+                    <span>--h</span>
+                    <span>--m</span>
+                    <span>--s</span>
+                  </>
+                )}
               </div>
             </div>
             <div className="flex items-baseline gap-3">
