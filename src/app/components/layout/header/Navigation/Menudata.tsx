@@ -7,7 +7,8 @@ export const headerData: HeaderItem[] = [
         children: [
             { label: 'Our Institute', href: '/about' },
             { label: 'Faculty & Research', href: '/faculty' },
-            { label: 'Governance Board', href: '/governance-board' }
+            { label: 'Governance Board', href: '/governance-board' },
+            { label: 'Ethics & Conduct', href: '/ethics' }
         ]
     },
     {

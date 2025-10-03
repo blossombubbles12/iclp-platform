@@ -95,8 +95,8 @@ const Footer = () => {
                 {[
                   { name:'Privacy Policy', url:'/privacy-policy' },
                   { name:'Terms & Conditions', url:'/terms-and-conditions' },
-                  { name:'Compliance', url:'/about#values' },
-                  { name:'Ethics', url:'/about#values' }
+                  { name:'Compliance', url:'/compliance' },
+                  { name:'Ethics', url:'/ethics' }
                 ].map(link => (
                   <li key={link.name} className='text-dark_black/60 hover:text-black dark:text-white/60 dark:hover:text-white'>
                     <Link href={link.url}>{link.name}</Link>
