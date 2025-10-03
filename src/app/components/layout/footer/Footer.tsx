@@ -62,9 +62,8 @@ const Footer = () => {
               <p className='font-medium'>Resources</p>
               <ul className='flex flex-col gap-3 text-sm'>
                 {[
-                  { name:'Case Studies', url:'/resources/cases' },
-                  { name:'Policy Briefs', url:'/resources/policy-briefs' },
-                  { name:'Governance Tools', url:'/resources/tools' },
+                  { name:'Case Studies', url:'/case-studies' },
+                  { name:'Documentation', url:'/documentation' },
                   { name:'FAQ', url:'/faq' }
                 ].map(link => (
                   <li key={link.name} className='text-dark_black/60 hover:text-black dark:text-white/60 dark:hover:text-white'>

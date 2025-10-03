@@ -21,20 +21,20 @@ export const headerData: HeaderItem[] = [
     },
     { 
         label: 'Resources', 
-        href: '/resources',
+        href: '/case-studies',
         children: [
-            { label: 'Case Studies', href: '/resources/cases' },
-            { label: 'Policy Briefs', href: '/resources/policy-briefs' },
-            { label: 'Governance Tools', href: '/resources/tools' }
+            { label: 'Case Studies', href: '/case-studies' },
+            { label: 'Documentation', href: '/documentation' },
+            { label: 'FAQ', href: '/faq' }
         ]
     },
     { 
-        label: 'Events', 
-        href: '/events',
+        label: 'Support', 
+        href: '/help-center',
         children: [
-            { label: 'Conferences', href: '/events/conferences' },
-            { label: 'Seminars', href: '/events/seminars' },
-            { label: 'Workshops', href: '/events/workshops' }
+            { label: 'Help Center', href: '/help-center' },
+            { label: 'Accessibility', href: '/accessibility' },
+            { label: 'Partnerships', href: '/partnerships' }
         ]
     },
     { label: 'Contact', href: '/contact' }
