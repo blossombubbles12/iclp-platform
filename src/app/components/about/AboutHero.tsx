@@ -23,11 +23,12 @@ export default function AboutHero(){
               Advancing Trust & Strategic Resilience
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple_blue via-teal-500 to-emerald-500 dark:from-indigo-300 dark:via-cyan-200 dark:to-emerald-200">In Corporate Law & Governance</span>
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed max-w-3xl text-dark_black/70 dark:text-white/70">We engineer credible governance capacity through interdisciplinary research, executive education, policy translation, and principled stewardship frameworks adopted across global markets.</p>
+            <p className="text-lg md:text-xl leading-relaxed max-w-3xl text-dark_black/70 dark:text-white/70">We offer courses and executive programs in corporate law, policy, and governance—combining interdisciplinary research, policy translation, and principled stewardship frameworks adopted across global markets.</p>
           </div>
           <div className="flex flex-wrap gap-4">
             <a href="#story" className="px-6 py-3 rounded-full bg-white text-dark_black font-medium shadow hover:shadow-lg transition">Our Story</a>
             <a href="#impact" className="px-6 py-3 rounded-full border text-dark_black border-dark_black/20 hover:bg-dark_black/5 transition dark:border-white/30 dark:text-white dark:hover:bg-white/10">Global Impact</a>
+            <a href="/courses" className="px-6 py-3 rounded-full bg-gradient-to-r from-teal-500 via-cyan-400 to-emerald-400 text-white font-medium shadow hover:brightness-110 transition">Explore Courses</a>
           </div>
         </motion.div>
         <motion.div initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{delay:0.3,duration:0.8}} className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl">

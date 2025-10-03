@@ -8,7 +8,7 @@ import AboutCTA from '@/app/components/about/AboutCTA';
 
 export const metadata: Metadata = {
   title: 'About Us | Institute of Corporate Law, Policy, and Governance Global',
-  description: 'Mission, vision, story, leadership, and global governance impact of the Institute of Corporate Law, Policy, and Governance Global.'
+  description: 'We offer courses and executive programs in corporate law, policy, and governance. Learn about our mission, story, leadership, and global impact.'
 };
 
 export default function AboutPage(){
