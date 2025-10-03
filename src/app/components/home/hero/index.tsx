@@ -163,7 +163,6 @@ function HeroSection() {
                     <StarRating
                       count={5}
                       color='#F59E0B'
-                      whileHover={{ y: -2, transition: { duration: 0.2 } }}
                     />
                     <p className='text-sm font-normal text-dark_black/60 dark:text-white/60'>
                       World-class Faculty & Research
