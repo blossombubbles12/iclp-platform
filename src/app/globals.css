@@ -98,6 +98,25 @@ layer(base);
     @apply dark:bg-dark_black;
   }
 
+  /* Subtle slow gradient animation (disabled for reduced motion) */
+  @keyframes slow-gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animated-gradient-bg {
+    background-image: linear-gradient(120deg,#f0fbff,#fff9ed,#f6e683,#f0fbff);
+    background-size: 300% 300%;
+    animation: slow-gradient-shift 22s ease-in-out infinite;
+  }
+  .dark .animated-gradient-bg {
+    background-image: linear-gradient(130deg,#0f172a,#093c46,#0d9488,#14504f);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animated-gradient-bg { animation: none; }
+  }
+
   @keyframes marquee {
     0% {
       transform: translateX(0);
