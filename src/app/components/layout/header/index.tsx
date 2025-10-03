@@ -52,8 +52,8 @@ const Header = () => {
             <div className='flex items-center'>
               <Logo />
             </div>
-            <div className='hidden lg:flex bg-dark_black/5 dark:bg-white/5 rounded-3xl py-3 px-1'>
-              <ul className='flex gap-0 2xl:gap-1.5'>
+            <div className='hidden lg:flex bg-dark_black/5 dark:bg-white/5 rounded-3xl px-1'>
+              <ul className='flex items-center h-12 gap-0 2xl:gap-1.5'>
                 {headerData.map((item, index) => (
                   <HeaderLink key={index} item={item} />
                 ))}

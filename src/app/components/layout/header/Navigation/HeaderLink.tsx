@@ -64,7 +64,7 @@ const HeaderLinkContent: React.FC<{ item: HeaderItem }> = ({ item }) => {
           <button
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
-            className={`px-4 py-2 font-medium hover:text-black dark:hover:text-black hover:bg-white hover:rounded-3xl hover:shadow-header_shadow flex items-center gap-1
+            className={`inline-flex items-center gap-1 px-4 py-2 font-medium hover:text-black dark:hover:text-black hover:bg-white hover:rounded-3xl hover:shadow-header_shadow
                       ${
                         activeLink.startsWith(item.href)
                           ? 'bg-white text-black rounded-[90rem] shadow-header_shadow'
@@ -118,7 +118,7 @@ const HeaderLinkContent: React.FC<{ item: HeaderItem }> = ({ item }) => {
       ) : (
         <Link
           href={item.href}
-          className={`px-4 py-2 font-medium hover:text-black dark:hover:text-black hover:bg-white hover:rounded-3xl hover:shadow-header_shadow 
+          className={`inline-flex items-center gap-1 px-4 py-2 font-medium hover:text-black dark:hover:text-black hover:bg-white hover:rounded-3xl hover:shadow-header_shadow 
                     ${
                       activeLink === item.href
                         ? 'bg-white text-black rounded-[90rem] shadow-header_shadow'
