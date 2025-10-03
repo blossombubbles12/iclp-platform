@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAnimation, motion } from 'framer-motion'
 import { categories, programs } from '../../data/programs'
 
@@ -108,8 +109,10 @@ function ProgramsPage() {
                       <Image
                         src={program.image}
                         alt={program.title}
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={index < 3}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                         <span className="bg-purple-blue text-white px-3 py-1 rounded-full text-xs font-semibold">
