@@ -129,18 +129,14 @@ export default function CourseDetailsClient({ program }: CourseDetailsClientProp
 
   return (
   <div className="bg-white dark:bg-dark_black text-dark_black dark:text-white" suppressHydrationWarning data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false">
-      {/* Hero */}
+      {/* Hero - matches homepage gradient and text style */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#0f172a,transparent_70%)]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#093c46] to-[#0d9488] opacity-90" />
-          <div className="absolute inset-0 mix-blend-overlay bg-[linear-gradient(115deg,rgba(246,195,67,0.25),transparent)]" />
-        </div>
+        <div className="relative w-full before:absolute before:w-full before:h-full before:bg-linear-to-r before:from-blue_gradient before:via-white before:to-yellow_gradient before:rounded-full before:top-24 before:blur-3xl before:-z-10 dark:before:from-dark_blue_gradient dark:before:via-black dark:before:to-dark_yellow_gradient">
         <div className="relative pt-40 pb-28 container flex flex-col lg:flex-row gap-12 items-start">
           <div className="flex-1 flex flex-col gap-6 max-w-2xl">
-            <span className="px-3 py-1 text-[11px] tracking-[0.15em] rounded-full bg-white/10 border border-white/20 text-white/80 w-fit uppercase">{program.category}</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">{program.title}</h1>
-            <p className="text-lg text-white/70 leading-relaxed">{program.description}</p>
+            <span className="px-3 py-1 text-[11px] tracking-[0.15em] rounded-full w-fit uppercase bg-dark_black/5 border border-dark_black/10 text-dark_black/70 dark:bg-white/10 dark:border-white/20 dark:text-white/80">{program.category}</span>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-dark_black dark:text-white">{program.title}</h1>
+            <p className="text-lg leading-relaxed text-dark_black/60 dark:text-white/60">{program.description}</p>
             <div className="flex flex-wrap gap-4 mt-2">
               <motion.div whileHover={{scale:1.05, boxShadow:'0 0 0 4px rgba(255,255,255,0.05),0 0 30px 6px rgba(13,148,136,0.5)'}} whileTap={{scale:0.95}}>
                 <Link href={`/enroll?course=${program.slug}`} className="relative group px-8 py-4 rounded-full font-semibold bg-gradient-to-r from-teal-500 via-teal-400 to-emerald-400 text-white shadow-lg overflow-hidden block text-center">
@@ -148,7 +144,7 @@ export default function CourseDetailsClient({ program }: CourseDetailsClientProp
                   <span className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-400/0 via-white/10 to-teal-300/0 opacity-0 group-hover:opacity-100 transition" />
                 </Link>
               </motion.div>
-              <motion.button whileHover={{scale:1.05}} whileTap={{scale:0.95}} className="px-8 py-4 rounded-full font-medium border border-white/20 text-white/80 hover:text-white hover:bg-white/10 transition">Preview Lesson</motion.button>
+              <motion.button whileHover={{scale:1.05}} whileTap={{scale:0.95}} className="px-8 py-4 rounded-full font-medium border border-dark_black/20 text-dark_black/70 hover:text-dark_black hover:bg-dark_black/5 transition dark:border-white/20 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10">Preview Lesson</motion.button>
             </div>
             <div className="flex flex-wrap gap-6 pt-4 text-white/70 text-sm">
               <div className="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 17.75 6.167 21l1.116-6.507L2 9.736l6.583-.957L12 3l3.417 5.779 6.583.957-5.283 4.757L17.833 21z"/></svg>{program.rating.toFixed(1)} ({program.ratingsCount} reviews)</div>
@@ -160,6 +156,7 @@ export default function CourseDetailsClient({ program }: CourseDetailsClientProp
             <div className="absolute inset-0 bg-gradient-to-br from-teal-500/30 to-emerald-500/10 mix-blend-overlay" />
             <Image src={program.image || '/images/home/creative/creative_img_1.png'} alt={program.title} width={800} height={600} className="object-cover h-full w-full" />
           </motion.div>
+        </div>
         </div>
       </section>
 
@@ -322,16 +319,19 @@ export default function CourseDetailsClient({ program }: CourseDetailsClientProp
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#0f172a] via-[#093c46] to-[#0d9488]" />
-        <div className="absolute inset-0 -z-10 mix-blend-overlay bg-[radial-gradient(circle_at_70%_40%,rgba(246,195,67,0.35),transparent_60%)]" />
-        <div className="container flex flex-col items-center text-center gap-8 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">Transform Your Governance Impact</h2>
-          <p className="text-white/70 leading-relaxed">Advance your board and executive influence with strategic oversight fluency and ethical performance assurance.</p>
-          <motion.div whileHover={{scale:1.05, boxShadow:'0 0 0 4px rgba(255,255,255,0.08), 0 0 45px 12px rgba(246,195,67,0.3)'}} whileTap={{scale:0.95}}>
-            <Link href={`/enroll?course=${program.slug}`} className="px-10 py-5 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 font-semibold text-dark_black shadow-lg hover:brightness-110 transition block">Enroll & Elevate</Link>
+      {/* Final CTA - Ice Gradient */}
+      <section className="py-28 relative overflow-hidden ice-cta-bg">
+        <div className="container flex flex-col items-center text-center gap-8 max-w-3xl relative">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight text-dark_black dark:text-white">Transform Your Governance Impact</h2>
+          <p className="leading-relaxed text-dark_black/70 dark:text-white/70 max-w-2xl">Advance your board and executive influence with strategic oversight fluency and ethical performance assurance.</p>
+          <motion.div whileHover={{scale:1.05, boxShadow:'0 0 0 4px rgba(14,116,144,0.15), 0 0 55px 18px rgba(45,212,191,0.25)'}} whileTap={{scale:0.95}}>
+            <Link href={`/enroll?course=${program.slug}`} className="px-10 py-5 rounded-full font-semibold shadow-lg transition block bg-gradient-to-r from-teal-500 via-cyan-400 to-emerald-400 text-white hover:brightness-110 hover:shadow-teal-500/30">Enroll & Elevate</Link>
           </motion.div>
+          <div className="flex flex-wrap justify-center gap-6 pt-2 text-xs text-dark_black/40 dark:text-white/30">
+            <span className="inline-flex items-center gap-1"><svg width="14" height="14" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"><path d="M12 3l3.09 6.26L22 10.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 15.14l-5-4.87 6-1.01z"/></svg> CPD Certificate</span>
+            <span className="inline-flex items-center gap-1"><svg width="14" height="14" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg> Practical Frameworks</span>
+            <span className="inline-flex items-center gap-1"><svg width="14" height="14" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"><path d="M12 6v12"/><path d="M6 12h12"/></svg> Cohort Community</span>
+          </div>
         </div>
       </section>
 
