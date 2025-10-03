@@ -10,6 +10,7 @@ function ProgramsPage() {
   const [filteredPrograms, setFilteredPrograms] = useState(programs)
   const [isFiltered, setIsFiltered] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [query, setQuery] = useState('')
 
   const container = useAnimation()
   const card = useAnimation()
@@ -21,15 +22,42 @@ function ProgramsPage() {
     setTimeout(() => setLoading(false), 500)
   }, [container, card])
 
+  // Category color helpers (deterministic by name)
+  const chipBgs = [
+    'bg-teal-600',
+    'bg-indigo-600',
+    'bg-rose-600',
+    'bg-sky-600',
+    'bg-amber-600',
+    'bg-fuchsia-600',
+  ] as const
+  const btnGrad = [
+    'from-teal-600 to-emerald-500',
+    'from-indigo-600 to-purple-500',
+    'from-rose-600 to-orange-500',
+    'from-sky-500 to-cyan-500',
+    'from-amber-500 to-yellow-500',
+    'from-fuchsia-600 to-pink-500',
+  ] as const
+  function colorIndex(name: string){
+    const sum = Array.from(name).reduce((a,c)=> a + c.charCodeAt(0), 0)
+    return sum % chipBgs.length
+  }
+  function chipBg(name: string){ return chipBgs[colorIndex(name)] }
+  function btnGradient(name: string){ return btnGrad[colorIndex(name)] }
+
   useEffect(() => {
-    if (activeCategory === 'all') {
-      setFilteredPrograms(programs)
-      setIsFiltered(false)
-    } else {
-      setFilteredPrograms(programs.filter(p => p.category === activeCategory))
-      setIsFiltered(true)
-    }
-  }, [activeCategory])
+    const base = activeCategory === 'all' ? programs : programs.filter(p => p.category === activeCategory)
+    const text = query.trim().toLowerCase()
+    const next = text
+      ? base.filter(p =>
+          p.title.toLowerCase().includes(text) ||
+          p.description.toLowerCase().includes(text)
+        )
+      : base
+    setFilteredPrograms(next)
+    setIsFiltered(activeCategory !== 'all' || !!text)
+  }, [activeCategory, query])
 
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-900">
@@ -53,7 +81,7 @@ function ProgramsPage() {
                   onClick={() => setActiveCategory('all')}
                   className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
                     activeCategory === 'all' 
-                      ? 'bg-purple-blue text-white' 
+                      ? 'bg-purple-blue text-white ring-2 ring-purple-blue/30' 
                       : 'hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
@@ -65,7 +93,7 @@ function ProgramsPage() {
                     onClick={() => setActiveCategory(category.name)}
                     className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
                       activeCategory === category.name 
-                        ? 'bg-purple-blue text-white' 
+                        ? `bg-gradient-to-r ${btnGradient(category.name)} text-white ring-2 ring-white/20` 
                         : 'hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                   >
@@ -93,6 +121,22 @@ function ProgramsPage() {
               </p>
             </div>
 
+            {/* Search */}
+            <div className="mb-8 flex items-center justify-center">
+              <div className="relative w-full max-w-md">
+                <svg className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                <input
+                  value={query}
+                  onChange={(e)=> setQuery(e.target.value)}
+                  placeholder="Search programs..."
+                  className="w-full pl-10 pr-16 py-2.5 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-800 text-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500/40 shadow-sm"
+                />
+                {query && (
+                  <button onClick={()=> setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400">Clear</button>
+                )}
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {loading ? (
                 <div className="col-span-full text-center">Loading programs...</div>
@@ -115,7 +159,7 @@ function ProgramsPage() {
                         priority={index < 3}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                        <span className="bg-purple-blue text-white px-3 py-1 rounded-full text-xs font-semibold">
+                        <span className={`${chipBg(program.category)} text-white px-3 py-1 rounded-full text-xs font-semibold`}>
                           {program.category}
                         </span>
                       </div>

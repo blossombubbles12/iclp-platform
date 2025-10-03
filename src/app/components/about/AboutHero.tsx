@@ -8,7 +8,8 @@ export default function AboutHero(){
   const y1 = useTransform(scrollYProgress, [0,1],[0,-120]);
   const y2 = useTransform(scrollYProgress, [0,1],[0,-80]);
   return (
-  <section ref={ref} className="relative overflow-hidden bg-gradient-to-br from-dark_black via-dark_black to-[#0f172a] text-white">
+  <section ref={ref} className="relative overflow-hidden">
+    <div className='relative w-full before:absolute before:w-full before:h-full before:bg-linear-to-r before:from-blue_gradient before:via-white before:to-yellow_gradient before:rounded-full before:top-24 before:blur-3xl before:-z-10 dark:before:from-dark_blue_gradient dark:before:via-black dark:before:to-dark_yellow_gradient dark:before:rounded-full dark:before:blur-3xl dark:before:-z-10'>
       <div className="absolute inset-0 pointer-events-none">
         <motion.div style={{ y: y1 }} className="absolute -top-40 -left-32 h-[32rem] w-[32rem] rounded-full bg-indigo-600/20 blur-3xl" />
         <motion.div style={{ y: y2 }} className="absolute bottom-[-10rem] right-[-10rem] h-[36rem] w-[36rem] rounded-full bg-cyan-400/20 blur-3xl" />
@@ -18,15 +19,15 @@ export default function AboutHero(){
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 md:py-40 flex flex-col gap-12">
         <motion.div initial={{opacity:0,y:40}} animate={{opacity:1,y:0}} transition={{duration:0.8,ease:'easeOut'}} className="max-w-4xl flex flex-col gap-8">
           <div className="flex flex-col gap-5">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-dark_black dark:text-white">
               Advancing Trust & Strategic Resilience
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-cyan-200 to-emerald-200">In Corporate Law & Governance</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple_blue via-teal-500 to-emerald-500 dark:from-indigo-300 dark:via-cyan-200 dark:to-emerald-200">In Corporate Law & Governance</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl">We engineer credible governance capacity through interdisciplinary research, executive education, policy translation, and principled stewardship frameworks adopted across global markets.</p>
+            <p className="text-lg md:text-xl leading-relaxed max-w-3xl text-dark_black/70 dark:text-white/70">We engineer credible governance capacity through interdisciplinary research, executive education, policy translation, and principled stewardship frameworks adopted across global markets.</p>
           </div>
           <div className="flex flex-wrap gap-4">
             <a href="#story" className="px-6 py-3 rounded-full bg-white text-dark_black font-medium shadow hover:shadow-lg transition">Our Story</a>
-            <a href="#impact" className="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition">Global Impact</a>
+            <a href="#impact" className="px-6 py-3 rounded-full border text-dark_black border-dark_black/20 hover:bg-dark_black/5 transition dark:border-white/30 dark:text-white dark:hover:bg-white/10">Global Impact</a>
           </div>
         </motion.div>
         <motion.div initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{delay:0.3,duration:0.8}} className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl">
@@ -39,6 +40,7 @@ export default function AboutHero(){
           ))}
         </motion.div>
       </div>
+    </div>
     </section>
   )
 }

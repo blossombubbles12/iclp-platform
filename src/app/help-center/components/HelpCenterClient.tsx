@@ -107,13 +107,13 @@ export default function HelpCenterClient(){
       </section>
 
       {/* CTA */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#0f172a] via-[#093c46] to-[#0d9488]" />
-        <div className="absolute inset-0 -z-10 mix-blend-overlay bg-[radial-gradient(circle_at_70%_40%,rgba(246,195,67,0.35),transparent_60%)]" />
-        <div className="container flex flex-col items-center text-center gap-8 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">Still Need Guidance?</h2>
-          <p className="text-white/70 leading-relaxed">Reach out for cohort setup, enterprise governance pathways, or accreditation mapping.</p>
-          <Link href="/contact" className="px-8 py-4 rounded-full font-semibold bg-gradient-to-r from-teal-500 via-teal-400 to-emerald-400 text-white shadow-lg hover:scale-[1.03] transition">Contact Support</Link>
+      <section className="py-24 relative overflow-hidden ice-cta-bg">
+        <div className="container flex flex-col items-center text-center gap-8 max-w-3xl relative">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight text-dark_black dark:text-white">Still Need Guidance?</h2>
+          <p className="leading-relaxed text-dark_black/70 dark:text-white/70">Reach out for cohort setup, enterprise governance pathways, or accreditation mapping.</p>
+          <Link href="/contact" className="px-8 py-4 rounded-full font-semibold bg-gradient-to-r from-teal-500 via-cyan-400 to-emerald-400 text-white shadow-lg hover:scale-[1.03] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/50">
+            Contact Support
+          </Link>
         </div>
       </section>
     </main>

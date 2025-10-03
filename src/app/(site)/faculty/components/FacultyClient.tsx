@@ -68,21 +68,27 @@ export default function FacultyClient(){
   return (
     <main className="bg-white dark:bg-dark_black text-dark_black dark:text-white">
       {/* Hero */}
-      <section className="relative overflow-hidden text-white">
+      <section className="relative overflow-hidden">
         <div className='relative w-full before:absolute before:w-full before:h-full before:bg-linear-to-r before:from-blue_gradient before:via-white before:to-yellow_gradient before:rounded-full before:top-24 before:blur-3xl before:-z-10 dark:before:from-dark_blue_gradient dark:before:via-black dark:before:to-dark_yellow_gradient dark:before:rounded-full dark:before:blur-3xl dark:before:-z-10'>
         <div className="relative max-w-7xl mx-auto px-6 py-28 md:py-36 flex flex-col gap-10 z-10">
           <motion.div initial={{opacity:0,y:40}} animate={{opacity:1,y:0}} transition={{duration:0.7}} className="max-w-4xl flex flex-col gap-6">
             <p className="uppercase tracking-widest text-[11px] font-medium text-purple_blue dark:text-purple">Faculty & Research</p>
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">Multidisciplinary Governance & Policy Scholars</h1>
-            <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl">Our faculty integrates legal analysis, governance design, risk interpretation, sustainability accountability, ethics, and executive education to advance resilient institutional stewardship.</p>
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-dark_black dark:text-white">Multidisciplinary Governance & Policy Scholars</h1>
+            <p className="text-lg md:text-xl leading-relaxed max-w-3xl text-dark_black/70 dark:text-white/70">Our faculty integrates legal analysis, governance design, risk interpretation, sustainability accountability, ethics, and executive education to advance resilient institutional stewardship.</p>
           </motion.div>
           <motion.div initial={{opacity:0,y:24}} animate={{opacity:1,y:0}} transition={{delay:0.25,duration:0.6}} className="flex flex-col md:flex-row gap-4 md:items-center">
-            <input
-              value={query}
-              onChange={e=>setQuery(e.target.value)}
-              placeholder="Search faculty..."
-              className="w-full md:max-w-sm rounded-full bg-white/90 dark:bg-white/10 backdrop-blur px-5 py-3 text-sm outline-none border border-white/20 focus:ring-2 focus:ring-purple/40 text-dark_black dark:text-white placeholder:text-dark_black/40 dark:placeholder:text-white/40"
-            />
+            <div className="relative w-full md:max-w-sm">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-dark_black/50 dark:text-white/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input
+                value={query}
+                onChange={e=>setQuery(e.target.value)}
+                placeholder="Search faculty..."
+                className="w-full pl-11 pr-14 py-3 rounded-full bg-white text-dark_black border border-dark_black/10 shadow-sm placeholder:text-dark_black/50 focus:outline-none focus:ring-2 focus:ring-teal-500/40 dark:bg-white/10 dark:text-white dark:border-white/20 dark:placeholder:text-white/40"
+              />
+              {query && (
+                <button onClick={()=>setQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-dark_black/50 hover:text-teal-600 dark:text-white/50 dark:hover:text-teal-400">Clear</button>
+              )}
+            </div>
             <div className="flex flex-wrap gap-2 max-h-28 overflow-y-auto pr-1">
               {allTags.map(tag => {
                 const active = activeTags.includes(tag);
@@ -90,7 +96,7 @@ export default function FacultyClient(){
                   <button
                     key={tag}
                     onClick={()=>toggleTag(tag)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium border transition ${active? 'bg-purple_blue text-white border-purple_blue dark:bg-purple dark:border-purple':'bg-white/10 text-white/70 border-white/20 hover:text-white'} `}
+                    className={`px-3 py-1 rounded-full text-xs font-medium border transition ${active? 'bg-purple_blue text-white border-purple_blue shadow-sm dark:bg-purple dark:border-purple':'bg-dark_black/5 text-dark_black/70 border-dark_black/10 hover:bg-dark_black/10 dark:bg-white/10 dark:text-white/70 dark:border-white/20 dark:hover:text-white'} `}
                   >{tag}</button>
                 )
               })}
@@ -122,8 +128,8 @@ export default function FacultyClient(){
                   <div className="relative h-64 overflow-hidden">
                     <Image src={f.image} alt={f.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
-                      {f.disciplines.map(d => <span key={d} className="text-[10px] uppercase tracking-wide font-medium px-2 py-1 rounded-full bg-purple_blue/90 text-white dark:bg-purple/70">{d}</span>)}
+                    <div className="absolute bottom-3 left-4 flex flex-wrap gap-2 z-10">
+                      {f.disciplines.map(d => <span key={d} className="text-[10px] uppercase tracking-wide font-medium px-2 py-1 rounded-full bg-purple_blue text-white ring-1 ring-white/10 shadow-sm dark:bg-purple/70">{d}</span>)}
                     </div>
                   </div>
                   <div className="p-5 flex flex-col gap-3 grow">
@@ -145,13 +151,13 @@ export default function FacultyClient(){
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-purple_blue via-purple to-purple/80 text-white">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col items-center text-center gap-8">
-          <h2 className="text-3xl md:text-4xl font-semibold leading-tight">Collaborate With Our Faculty & Research Clusters</h2>
-          <p className="text-white/80 leading-relaxed max-w-2xl">Partner on governance diagnostics, regulatory innovation pilots, data ethics frameworks, or board capability programs.</p>
+      <section className="py-24 relative overflow-hidden ice-cta-bg">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col items-center text-center gap-8 relative">
+          <h2 className="text-3xl md:text-4xl font-semibold leading-tight text-dark_black dark:text-white">Collaborate With Our Faculty & Research Clusters</h2>
+          <p className="leading-relaxed max-w-2xl text-dark_black/70 dark:text-white/70">Partner on governance diagnostics, regulatory innovation pilots, data ethics frameworks, or board capability programs.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/contact" className="px-6 py-3 rounded-full bg-white text-dark_black font-medium hover:shadow transition">Start a Conversation</a>
-            <a href="/courses" className="px-6 py-3 rounded-full border border-white/60 hover:bg-white/10 transition">View Courses</a>
+            <a href="/contact" className="px-6 py-3 rounded-full bg-gradient-to-r from-teal-500 via-cyan-400 to-emerald-400 text-white font-medium hover:brightness-110 transition shadow">Start a Conversation</a>
+            <a href="/courses" className="px-6 py-3 rounded-full border text-dark_black dark:text-white border-dark_black/15 dark:border-white/25 hover:bg-dark_black/5 dark:hover:bg-white/10 transition">View Courses</a>
           </div>
         </div>
       </section>
