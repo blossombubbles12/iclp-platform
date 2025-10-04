@@ -32,22 +32,24 @@ export default function GovernanceBoardClient(){
   return (
   <main className="bg-white dark:bg-dark_black text-dark_black dark:text-white">
       {/* Hero */}
-  <section className="relative overflow-hidden bg-gradient-to-br from-dark_black via-dark_black to-[#0f172a] text-white">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-cyan-400/20 blur-3xl" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.07),transparent_60%)]" />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-6 py-28 md:py-40 flex flex-col gap-10">
-          <motion.div initial={{opacity:0,y:28}} animate={{opacity:1,y:0}} transition={{duration:0.7}} className="max-w-3xl flex flex-col gap-6">
-            <p className="uppercase tracking-widest text-[11px] font-medium text-purple_blue dark:text-purple">Governance Board</p>
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white">Stewarding Institutional Integrity & Strategic Resilience</h1>
-            <p className="text-lg md:text-xl leading-relaxed text-white/70">Our governance board safeguards mission fidelity, fiduciary responsibility, academic quality, ethical stewardship, and long-horizon strategic positioning.</p>
-            <div className="flex flex-wrap gap-4 pt-2">
-              <a href="#members" className="px-6 py-3 rounded-full bg-white text-slate-900 font-medium hover:shadow transition">Board Members</a>
-              <a href="#committees" className="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition">Committees</a>
-            </div>
-          </motion.div>
+  <section className="relative overflow-hidden">
+        <div className='relative w-full before:absolute before:w-full before:h-full before:bg-linear-to-r before:from-blue_gradient before:via-white before:to-yellow_gradient before:rounded-full before:top-24 before:blur-3xl before:-z-10 dark:before:from-dark_blue_gradient dark:before:via-black dark:before:to-dark_yellow_gradient dark:before:rounded-full dark:before:blur-3xl dark:before:-z-10'>
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl" />
+            <div className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-cyan-400/20 blur-3xl" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.07),transparent_60%)]" />
+          </div>
+          <div className="relative max-w-6xl mx-auto px-6 py-28 md:py-40 flex flex-col gap-10">
+            <motion.div initial={{opacity:0,y:28}} animate={{opacity:1,y:0}} transition={{duration:0.7}} className="max-w-3xl flex flex-col gap-6">
+              <p className="uppercase tracking-widest text-[11px] font-medium text-purple_blue dark:text-purple">Governance Board</p>
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-dark_black dark:text-white">Stewarding Institutional Integrity & Strategic Resilience</h1>
+              <p className="text-lg md:text-xl leading-relaxed text-dark_black/70 dark:text-white/70">Our governance board safeguards mission fidelity, fiduciary responsibility, academic quality, ethical stewardship, and long-horizon strategic positioning.</p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a href="#members" className="px-6 py-3 rounded-full bg-white text-dark_black font-medium shadow hover:shadow-lg transition">Board Members</a>
+                <a href="#committees" className="px-6 py-3 rounded-full border text-dark_black border-dark_black/20 hover:bg-dark_black/5 transition dark:border-white/30 dark:text-white dark:hover:bg-white/10">Committees</a>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -127,13 +129,13 @@ export default function GovernanceBoardClient(){
       </section>
 
       {/* CTA */}
-  <section className="py-24 bg-gradient-to-br from-purple_blue via-purple to-purple/80 text-white">
+  <section className="py-24 relative overflow-hidden ice-cta-bg">
         <div className="max-w-5xl mx-auto px-6 flex flex-col items-center text-center gap-8">
-          <h2 className="text-3xl md:text-4xl font-semibold leading-tight">Engage with Our Governance Network</h2>
-            <p className="text-white/80 leading-relaxed max-w-2xl">We collaborate with regulators, institutional leaders, academic partners, and stewardship advocates to elevate governance integrity globally.</p>
+          <h2 className="text-3xl md:text-4xl font-semibold leading-tight text-dark_black dark:text-white">Engage with Our Governance Network</h2>
+            <p className="text-dark_black/70 dark:text-white/70 leading-relaxed max-w-2xl">We collaborate with regulators, institutional leaders, academic partners, and stewardship advocates to elevate governance integrity globally.</p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/contact" className="px-6 py-3 rounded-full bg-white text-indigo-700 font-medium hover:shadow transition">Contact Us</Link>
-              <Link href="/about#impact" className="px-6 py-3 rounded-full border border-white/60 hover:bg-white/10 transition">View Impact</Link>
+              <Link href="/contact" className="px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-teal-500 via-cyan-400 to-emerald-400 text-white shadow hover:brightness-110">Contact Us</Link>
+              <Link href="/about#impact" className="px-6 py-3 rounded-full font-semibold border text-dark_black border-dark_black/20 hover:bg-dark_black/5 dark:border-white/30 dark:text-white dark:hover:bg-white/10">View Impact</Link>
             </div>
         </div>
       </section>
