@@ -50,7 +50,7 @@ export const Introduction = () => {
 
         <div className='flex item-center justify-between'>
           <h3 className=' text-black text-2xl mt-4 font-semibold mb-6 dark:text-white'>
-            Pacakge Versions
+            Technology Stack
           </h3>
           <button onClick={() => setDocNavbarOpen(true)} className='p-0'>
             {' '}
@@ -82,15 +82,13 @@ export const Introduction = () => {
         </div>
         <div className='mt-5'>
           <p className='text-base font-medium text-midnight_text dark:text-grey'>
-            Awake Tailwind NextJs Template is built with Tailwindcss and Nextjs.
+            The ICLP Platform is built with Next.js, React, Tailwind CSS, and TypeScript to deliver fast, accessible documentation and training content.
           </p>
           <p className='text-base font-medium text-midnight_text dark:text-grey'>
-            These theme is ready to use and you can totally customize as per
-            your requirement.
+            You can customize modules, pages, and styles to match institutional needs across Corporate Law, Policy, and Governance.
           </p>
           <p className='text-base font-medium text-midnight_text dark:text-grey'>
-            For Customize, You should have knowledge of NextJs, ReactJs,
-            Tailwind and JSX to be able to modify these template.
+            Familiarity with Next.js, React, Tailwind, and JSX will help you extend and configure the platform effectively.
           </p>
         </div>
       </div>

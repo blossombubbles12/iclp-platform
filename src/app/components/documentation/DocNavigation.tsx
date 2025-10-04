@@ -15,26 +15,13 @@ export const DocNavigation = () => {
     }, [navItem])
 
     const DocsNav = [
-        {
-            id: 1,
-            navItem: "Package Versions",
-            hash: "version"
-        },
-        {
-            id: 2,
-            navItem: "Pacakge Structure",
-            hash: "structure"
-        },
-        {
-            id: 3,
-            navItem: "Quick Start",
-            hash: "start"
-        },
-        {
-            id: 4,
-            navItem: "Project Configuration",
-            hash: "configuration"
-        },
+        { id: 1, navItem: "Overview", hash: "overview" },
+        { id: 2, navItem: "Courses & Programs", hash: "courses" },
+        { id: 3, navItem: "Enrollment", hash: "enrollment" },
+        { id: 4, navItem: "Branding & Theme", hash: "branding" },
+        { id: 5, navItem: "Navigation", hash: "navigation" },
+        { id: 6, navItem: "API Reference", hash: "api" },
+        { id: 7, navItem: "Data Model", hash: "data-model" },
     ]
 
     return (

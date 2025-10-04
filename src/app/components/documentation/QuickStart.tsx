@@ -27,7 +27,7 @@ export const QuickStart = () => {
       </div>
       <div className="p-6 rounded-md border mt-6 border-border dark:border-dark_border">
         <h6 className="dark:text-white text-lg font-medium">3. Start</h6>
-        <p className="text-base font-medium text-midnight_text dark:text-grey mb-4">Once npm install is done now you an run the app.</p>
+          <p className="text-base font-medium text-midnight_text dark:text-grey mb-4">Once dependencies are installed, you can run the platform locally.</p>
 
         <div className="py-4 px-3 rounded-md bg-black">
           <p className="text-sm text-gray-400">npm run dev or yarn run dev</p>
@@ -35,6 +35,7 @@ export const QuickStart = () => {
         <p className="text-base font-medium text-midnight_text dark:text-grey my-4">This command will start a local webserver <span className="dark:text-white" >http://localhost:3000:</span></p>
         <div className="py-4 px-3 rounded-md bg-black">
           <p className="text-sm text-gray-400">{"> awake_project@1.0.0 dev"}</p>
+            <p className="text-sm text-gray-400">{" > iclp-platform@1.0.0 dev"}</p>
           <p className="text-sm text-gray-400 mt-1">{"> next dev"}</p>
           <p className="text-sm text-gray-400 mt-6">{"-Next.js 15.1.7"}</p>
           <p className="text-sm text-gray-400 mt-1">{"-Local: http://localhost:3000"}</p>

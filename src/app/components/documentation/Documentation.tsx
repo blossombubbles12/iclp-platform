@@ -1,8 +1,11 @@
-import { Configuration } from './Configuration'
 import { DocNavigation } from './DocNavigation'
-import { Introduction } from './Introduction'
-import { PackageStructure } from './PackageStructure'
-import { QuickStart } from './QuickStart'
+import { Overview } from './Overview'
+import { CoursesGuide } from './CoursesGuide'
+import { EnrollmentGuide } from './EnrollmentGuide'
+import { BrandingGuide } from './BrandingGuide'
+import { NavigationGuide } from './NavigationGuide'
+import { APIReference } from './APIReference'
+import { DataModel } from './DataModel'
 
 export const Documentation = () => {
   return (
@@ -13,10 +16,13 @@ export const Documentation = () => {
             <DocNavigation />
           </div>
           <div className='lg:col-span-9 col-span-12'>
-            <Introduction />
-            <PackageStructure />
-            <QuickStart />
-            <Configuration />
+            <Overview />
+            <CoursesGuide />
+            <EnrollmentGuide />
+            <BrandingGuide />
+            <NavigationGuide />
+            <APIReference />
+            <DataModel />
           </div>
         </div>
       </div>
