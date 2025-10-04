@@ -55,6 +55,8 @@ export default function Home() {
 
       {/* ---------------------Hero section Starts-----------------  */}
       {safeRender('HeroSection', HeroSection)}
+  {/* ---------------------Courses Preview section (moved up for visibility) -----------------  */}
+  {safeRender('CoursesPreview', CoursesPreview)}
       {/* ---------------------Brand section -----------------  */}
       {safeRender('Brand', Brand)}
       {/* ---------------------Web result section -----------------  */}
@@ -67,8 +69,6 @@ export default function Home() {
       {safeRender('CreativeMind', CreativeMind)}
       {/* ---------------------Customer Stories / Testimonials section -----------------  */}
       {safeRender('CustomerStories', CustomerStories)}
-  {/* ---------------------Courses Preview section -----------------  */}
-  {safeRender('CoursesPreview', CoursesPreview)}
       {/* ---------------------Subscription / Programs section -----------------  */}
       {safeRender('Subscription', Subscription)}
       {/* ---------------------FAQ section -----------------  */}

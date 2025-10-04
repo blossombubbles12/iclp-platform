@@ -17,10 +17,10 @@ export default function CoursesPreview(){
         <div className="container flex flex-col gap-12">
           <div className="text-center max-w-3xl mx-auto flex flex-col gap-4">
             <h2 className="text-3xl md:text-5xl font-bold text-dark_black dark:text-white">
-              Strategic <span className='instrument-font italic font-normal text-purple_blue dark:text-purple'>Governance Courses</span>
+              Corporate Law, Policy & <span className='instrument-font italic font-normal text-purple_blue dark:text-purple'>Governance Training</span>
             </h2>
             <p className="text-dark_black/60 dark:text-white/60">
-              Focused executive learning pathways that accelerate board effectiveness, compliance maturity, and resilient strategy.
+              Executive and professional courses covering fiduciary duties, regulatory compliance, board governance, risk, and ethical leadership—grounded in applied research and practice.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -30,7 +30,7 @@ export default function CoursesPreview(){
                   <Image src={course.image} alt={course.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-70 group-hover:opacity-80 transition-opacity" />
                   <div className="absolute bottom-0 p-4 flex flex-col gap-2">
-                    <span className="text-xs px-2 py-1 rounded-full bg-white/15 backdrop-blur border border-white/20 text-white w-fit">{course.category}</span>
+                    <span className="text-[11px] tracking-wide uppercase px-2 py-1 rounded-full bg-white/15 backdrop-blur border border-white/20 text-white w-fit">{course.category}</span>
                     <h3 className="text-white text-lg font-semibold leading-snug">{course.title}</h3>
                   </div>
                 </div>
@@ -41,7 +41,7 @@ export default function CoursesPreview(){
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 17.75 6.167 21l1.116-6.507L2 9.736l6.583-.957L12 3l3.417 5.779 6.583.957-5.283 4.757L17.833 21z"/></svg>
                       {course.rating.toFixed(1)} • {course.ratingsCount} reviews
                     </span>
-                    <span className="opacity-70 group-hover:text-purple_blue dark:group-hover:text-purple transition-colors">Explore →</span>
+                    <span className="opacity-70 group-hover:text-purple_blue dark:group-hover:text-purple transition-colors">Details →</span>
                   </div>
                 </div>
               </Link>

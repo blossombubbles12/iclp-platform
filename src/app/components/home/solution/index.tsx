@@ -25,16 +25,13 @@ function Solutions() {
               className='flex flex-col gap-6 items-center md:max-w-3xl mx-auto'>
               <div className='flex flex-col gap-3 items-center text-center'>
                 <h2 className='text-3xl md:text-5xl dark:text-dark_black'>
-                  Strategic Governance Education for{' '}
+                  Corporate Law, Policy & Governance Training for{' '}
                   <span className='instrument-font italic font-normal dark:text-black/70'>
                     Modern Leaders
                   </span>
                 </h2>
                 <p className='dark:text-dark_black'>
-                  Strengthen your board's oversight, ethics, and strategic impact. We
-                  design immersive governance programs that elevate compliance,
-                  ESG stewardship, and decision‑making clarity across complex
-                  regulatory environments.
+                  Build credible capability in fiduciary duties, regulatory policy, compliance integrity, ESG stewardship, and strategic risk. Our applied programs translate research into practical governance impact.
                 </p>
               </div>
               <Link
